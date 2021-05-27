@@ -1,27 +1,27 @@
-AFRAME.registerComponent('mi_componente', {  
+AFRAME.registerComponent('box', {  
     schema: {
       interval: { type: 'number', default: 5000 },
       defaultColor: { type: 'color', default: '#fff' }
     },
     
     init: function() {
-      var el = this.el //toma el elemento del tag
-      var interval = this.data.interval //variable de intervalo, toma lo que venga de la propiedad
+      var el = this.el 
+      var interval = this.data.interval 
       
-      var colors = ["red", "green", "blue", "yellow", "orange"] //paleta de colores en rgb, hex, obj
+      var colors = ["#F11111", "#FCDB04", "#2DB1EA", "#52E822", "#EF800A"] 
       
       var i = 0
        
-      el.setAttribute('color', colors[0]) //asignación del color
+      el.setAttribute('color', colors[0]) 
       
-      this.colorInterval = setInterval(function(){ //cada vez que ocurra un intervalo ejecuta la funcion
-        i = (i + 1) % colors.length //ciclo para recorrer el array de colores y volver al inicio
+      this.colorInterval = setInterval(function(){ 
+        i = (i + 1) % colors.length 
         el.setAttribute('color', colors[i])
       }, interval) 
     },
     
     update: function() {},
-    //cuando se borra o se deja de utilizar
+  
     remove: function() {
       var el = this.el
       var defaultColor = this.data.defaultColor
@@ -30,10 +30,3 @@ AFRAME.registerComponent('mi_componente', {
       el.setAttribute('color', defaultColor)
     }
   })
-     
-  // document.querySelector('a-torus').setAttribute('camaleon', 'defaultColor: skyblue; interval: 1000;')
-  
-  
-  // setTimeout(function(){ 
-  //   document.querySelector('a-torus').removeAttribute('mi_componente')
-  // }, 1000)
