@@ -1,4 +1,4 @@
-AFRAME.registerComponent('box', {  
+AFRAME.registerComponent('a-box', {  
     schema: {
       interval: { type: 'number', default: 5000 },
       defaultColor: { type: 'color', default: '#fff' }
